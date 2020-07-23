@@ -1,26 +1,7 @@
-import React, { Component } from 'react';
-import { render } from 'react-dom';
-import Hello from './Hello';
-import './style.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import Hello from "./Hello";
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: 'React'
-    };
-  }
+ReactDOM.render(<h1> Hello World</h1>, document.getElementById("root"));
 
-  render() {
-    return (
-      <div>
-        <Hello name={this.state.name} />
-        <p>
-          Start editing to see some magic happen :)
-        </p>
-      </div>
-    );
-  }
-}
-
-render(<App />, document.getElementById('root'));
+render(<App />, document.getElementById("root"));
