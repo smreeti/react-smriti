@@ -1,8 +1,8 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import ClassComponent from "./components/ClassComponent"
+import App from "./components/App"
 
 ReactDOM.render(
-    <ClassComponent />,
+    <App/>,
     document.getElementById("root")
 )

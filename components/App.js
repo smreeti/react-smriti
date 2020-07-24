@@ -3,15 +3,25 @@ import ToDoItems from "./ToDoItems";
 import toDoItemsData from "./toDoItemsData";
 
 // function App() {
-//   const toDoList = toDoItemsData.map(todo => <ToDoItems task={todo.task} />);
+
+//   console.log("todo data::::" + toDoItemsData)
+//   const toDoList = toDoItemsData.map(todo => <ToDoItems key = {todo.id} task={todo.task} />);
 //   return <div>{toDoList}</div>;
 // }
 
 class App extends React.Component {
-  // const toDoList = toDoItemsData.map(todo =>
-  // <ToDoItems key = {todo.id} task = {todo.task}/>);
+  constructor() {
+    super();
+  
+    this.state = {
+      todos: toDoItemsData
+    };
+  }
+
   render() {
-    return <div>Hello</div>;
+    const toDoList = this.state.todos.map(todo => <ToDoItems task={todo.task} />);
+
+    return <div>{toDoList}</div>;
   }
 }
 
