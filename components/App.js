@@ -12,17 +12,30 @@ import toDoItemsData from "./toDoItemsData";
 class App extends React.Component {
   constructor() {
     super();
-  
+
     this.state = {
       todos: toDoItemsData
     };
   }
 
   render() {
-    const toDoList = this.state.todos.map(todo => <ToDoItems task={todo.task} />);
+    const toDoList = this.state.todos.map(todo => (
+      <ToDoItems task={todo.task} />
+    ));
 
-    return <div>{toDoList}</div>;
+    return (
+      <div>
+        {toDoList}
+        <img src="https://www.fillmurray.com/200/100" onMouseOver = {handleOnClick}/>
+        <br />
+        <button onClick={handleOnClick}> Click me </button>
+      </div>
+    );
   }
+}
+
+function handleOnClick() {
+  console.log("clicked");
 }
 
 export default App;
