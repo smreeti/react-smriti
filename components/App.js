@@ -2,13 +2,6 @@ import React from "react";
 import ToDoItems from "./ToDoItems";
 import toDoItemsData from "./toDoItemsData";
 
-// function App() {
-
-//   console.log("todo data::::" + toDoItemsData)
-//   const toDoList = toDoItemsData.map(todo => <ToDoItems key = {todo.id} task={todo.task} />);
-//   return <div>{toDoList}</div>;
-// }
-
 class App extends React.Component {
   constructor() {
     super();
@@ -16,26 +9,33 @@ class App extends React.Component {
     this.state = {
       todos: toDoItemsData
     };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(id) {
+    this.setState(previousState => {
+      const updatedToDos = previousState.todos.map(todo => {
+        if (todo.id === id) 
+          todo.isChecked = !todo.isChecked;
+  
+        return todo;
+      });
+
+      return {
+        todos: updatedToDos
+      };
+    });
   }
 
   render() {
-    const toDoList = this.state.todos.map(todo => (
-      <ToDoItems task={todo.task} />
+    console.log("items" + toDoItemsData);
+    const todoList = this.state.todos.map(todo => (
+      <ToDoItems key={todo.id} todo={todo} handleChange={this.handleChange} />
     ));
 
-    return (
-      <div>
-        {toDoList}
-        <img src="https://www.fillmurray.com/200/100" onMouseOver = {handleOnClick}/>
-        <br />
-        <button onClick={handleOnClick}> Click me </button>
-      </div>
-    );
+    return <div>{todoList}</div>;
   }
-}
-
-function handleOnClick() {
-  console.log("clicked");
 }
 
 export default App;

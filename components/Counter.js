@@ -22,6 +22,7 @@ class Counter extends React.Component {
       <div>
         <h1> Count : {this.state.count}</h1>
         <button onClick={this.handleClick}> Click </button>
+        
       </div>
     );
   }
