@@ -2,7 +2,11 @@ h1, p {
   font-family: Lato;
 }
 
-#cbox1:checked + label{
-  color:blue;
+.completed {
   text-decoration: line-through;
+}
+
+.strikeThrough {
+  text-decoration: line-through;
+  color: red;
 }

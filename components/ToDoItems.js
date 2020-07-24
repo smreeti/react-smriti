@@ -1,5 +1,4 @@
 import React from "react";
-import style from "./style.css";
 
 function ToDoItems(props) {
   return (
@@ -7,10 +6,13 @@ function ToDoItems(props) {
       <input
         type="checkbox"
         checked={props.todo.isChecked}
-        onChange={() => props.handleChange(props.todo.id)}
+        className={props.todo.isChecked ? "completed" : ""}
+        onChange={event => props.handleChange(props.todo.id)}
       />
-        {props.todo.task}
+      {props.todo.task}
+
     </div>
+    
   );
 }
 
