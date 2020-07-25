@@ -19,9 +19,19 @@ class TodoApp extends React.Component {
 
   handleClick(todoItem) {
     console.log("Todo Item Added :::" + todoItem);
+
     this.setState({
       todoList: [...this.state.todoList, todoItem]
     });
+  }
+
+  handleCheckboxChange = e => {
+    e.target.classList.toggle("strikeThrough");
+  };
+
+  handleRemove() {
+  
+    
   }
 
   render() {
@@ -40,9 +50,14 @@ class TodoApp extends React.Component {
 
         <div>
           <p>To Do Items</p>
+          {this.state.todoList.map((item, index) => (
+            <div>
+              <p key={index} onClick={this.handleCheckboxChange}>
+                {item}{" "}
+              </p>
 
-          {this.state.todoList.map((todo, index) => (
-            <p key={index}> {todo} </p>
+              <button onClick={this.handleRemove}>Remove</button>
+            </div>
           ))}
         </div>
       </div>
