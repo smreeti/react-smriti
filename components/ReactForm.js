@@ -1,10 +1,11 @@
 import React from "react";
 
+
 class ReactForm extends React.Component {
   constructor() {
     super();
     this.state = {
-      firstName: "",
+      lastNamefirstName: "",
       lastName: "",
       isFriendly: false,
       gender: "",
@@ -18,9 +19,6 @@ class ReactForm extends React.Component {
     console.log("clicked");
     console.log(event.target.name);
     console.log(event.target.value);
-    // this.setState({
-    //   [event.target.name]: event.target.value
-    // });
 
     const { name, value, type, checked } = event.target;
     type === "checkbox"
