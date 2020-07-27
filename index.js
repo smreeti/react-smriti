@@ -1,10 +1,10 @@
 import React from "react"
 import ReactDOM from "react-dom"
 
-import ReactForm from "./components/ReactForm"
+import ConditionalRendering from "./components/ConditionalRendering"
 import "./style.css";
 
 ReactDOM.render(
-    <ReactForm/>,
+    <ConditionalRendering/>,
     document.getElementById("root")
 )
