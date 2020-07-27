@@ -29,10 +29,19 @@ class TodoApp extends React.Component {
     e.target.classList.toggle("strikeThrough");
   };
 
-  handleRemove() {
-  
-    
-  }
+  handleRemove = index => {
+    const todoList = this.state.todoList;
+
+    for (let i = 0; i <= todoList.length; i++) {
+      if (i == index) {
+        todoList.splice(index, 1);
+      }
+    }
+
+    this.setState({
+      todoList: todoList
+    });
+  };
 
   render() {
     return (
@@ -56,7 +65,7 @@ class TodoApp extends React.Component {
                 {item}{" "}
               </p>
 
-              <button onClick={this.handleRemove}>Remove</button>
+              <button onClick={() => this.handleRemove(index)}>Remove</button>
             </div>
           ))}
         </div>
