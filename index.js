@@ -1,10 +1,5 @@
-import React from "react"
-import ReactDOM from "react-dom"
+import React from "react";
+import ReactDOM from "react-dom";
+import MemeGeneratorApp from "./components/memeGenerator/MemeGeneratorApp"
 
-import ReactForm from "./components/ReactForm"
-import "./style.css";
-
-ReactDOM.render(
-    <ReactForm/>,
-    document.getElementById("root")
-)
+ReactDOM.render(<MemeGeneratorApp />, document.getElementById("root"));
