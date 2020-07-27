@@ -5,7 +5,7 @@ import MemeGenerator from "./MemeGenerator";
 function MemeGeneratorApp() {
   return (
     <div>
-      <Header />
+      <Header name="Smriti" />
       <MemeGenerator />
     </div>
   );

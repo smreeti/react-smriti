@@ -9,9 +9,6 @@ class MemeGenerator extends React.Component {
       randomImg: "",
       allMemeImages: []
     };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -23,20 +20,20 @@ class MemeGenerator extends React.Component {
         console.log("Memes:::" + memes[0].id);
         this.setState({
           allMemeImages: memes,
-          randomImg :memes[1].url
+          randomImg: memes[1].url
         });
       });
   }
 
-  handleChange(event) {
+  handleChange = event => {
     const { name, value, type, checked } = event.target;
 
     type === "checkbox"
       ? this.setState({ [name]: checked })
       : this.setState({ [name]: value });
-  }
+  };
 
-  handleClick() {
+  handleClick = event => {
     console.log("button clicked");
     event.preventDefault();
 
@@ -48,7 +45,7 @@ class MemeGenerator extends React.Component {
     this.setState({
       randomImg: randomImage
     });
-  }
+  };
 
   render() {
     return (
@@ -74,7 +71,6 @@ class MemeGenerator extends React.Component {
           Top: {this.state.topText} <br />
           Buttom : {this.state.bottomText}
           <img src={this.state.randomImg} />
-          
         </form>
       </div>
     );
