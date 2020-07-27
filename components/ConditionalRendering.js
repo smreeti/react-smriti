@@ -5,23 +5,27 @@ class ConditionalRendering extends React.Component {
   constructor() {
     super();
     this.state = {
-      isLoading: true
+      isLoading: false,
+      character: {}
     };
   }
 
   componentDidMount() {
-    setTimeout(() => {
-      this.setState({
-        isLoading: false
-      })
-    }, 1500)
+  
+    this.setState({ loading: true });
+    fetch("https://swapi.co/api/people/1")
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          isLoading: false,
+          character: data
+        });
+      });
   }
 
   render() {
     return (
-      <div>
-        <Conditional isLoading={this.state.isLoading} />
-      </div>
+      <div>{this.state.isLoading ? "loading" : this.state.character.name}</div>
     );
   }
 }
